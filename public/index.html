@@ -16,20 +16,34 @@
                 <label>last name</label>
                 <input class="form-control" ng-model="nc1.lastName">
             </div>
-            <button class="btn btn-primary" ng-click="addC1(nc1)">Submit</button>
+            <div class="form-group">
+                <label>email</label>
+                <input class="form-control" ng-model="nc1.email">
+            </div>
+            <div ng-hide="showUpdate">            
+                <button class="btn btn-primary" ng-click="addC1(nc1)">Submit</button>
+            </div>
+            <div ng-show="showUpdate">
+                <button class="btn btn-success" ng-click="updateC1(nc1)">Update</button>
+            </div>
         </form>
         <br>
         <table class="table table-striped">
             <tr>
                 <th>first name</th>
                 <th>last name</th>
+                <th>email</th>
+                <th>action</th>
                 <tr>
-                    <tr ng-repeat="c1 in c1s">
+                    <tr ng-repeat="c1 in c1s" ng-click="selectC1(c1)">
                         <td>{{c1.firstName}}</td>
                         <td>{{c1.lastName}}</td>
+                        <td>{{c1.email}}</td>
+                        <td><button ng-click="delC1(c1)" class="btn btn-danger">Del</button></td>
                     </tr>
         </table>
     </div>
+    <script src="libs/underscore/underscore.js"></script>
     <script src="libs/angular/angular.js"></script>
     <script src="app.js"></script>
 </body>
